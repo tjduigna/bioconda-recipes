@@ -1,0 +1,25 @@
+From a92b69dea3c6ad9edfb278f3e6324e89b486c068 Mon Sep 17 00:00:00 2001
+From: Thomas Duignan <thomas.j.duignan@gmail.com>
+Date: Tue, 10 Sep 2024 09:20:48 -0400
+Subject: [PATCH] debug: patch
+
+---
+ scripts/ost_config.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/scripts/ost_config.in b/scripts/ost_config.in
+index 69e79296..d9fac231 100644
+--- a/scripts/ost_config.in
++++ b/scripts/ost_config.in
+@@ -38,7 +38,7 @@ export LD_LIBRARY_PATH="$DNG_LIBDIR:${LD_LIBRARY_PATH}"
+ 
+ 
+ # retrieve absolute path to python executable
+-pyexec="@Python_EXECUTABLE@"
++pyexec=`which python`
+ 
+ if [ ! -x "$pyexec" ]; then 
+   echo "Error: Python executable '$pyexec' not found!"
+-- 
+2.39.3 (Apple Git-146)
+

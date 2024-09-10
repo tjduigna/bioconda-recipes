@@ -1,0 +1,58 @@
+{% set version = "2.8.0" %}
+{% set name = "openstructure" %}
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://git.scicore.unibas.ch/schwede/{{ name|lower }}/-/archive/${{ version }}/{{ name|lower }}-${{ version }}.tar.gz
+  patches:
+  - ost_config.in.patch
+  - OST.cmake.patch
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - {{ compiler('cxx') }}
+    - {{ compiler('fortran') }}
+    - python
+    - cmake
+    - clang
+    - make
+    - zlib
+    - eigen
+    - sqlite
+    - fftw
+    - libtiff
+    - libpng
+  host:
+    - python
+    - boost==1.82.0
+    - libboost
+    - py-boost
+    - eigen
+    - sqlite
+    - fftw
+    - libtiff
+    - libpng
+
+outputs:
+  - name: {{ name|lower }}
+    requirements:
+      - python
+      - boost==1.82.0
+      - libboost
+      - py-boost
+      - eigen
+      - sqlite
+      - fftw
+      - libtiff
+      - libpng
+
+about:
+  home: https://git.scicore.unibas.ch/schwede/openstructure
+  license: LGPL-3.0
+  license_file: LICENSE.txt
+  summary: Conda build system for '{{ name }}'

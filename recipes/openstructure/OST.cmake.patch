@@ -1,0 +1,27 @@
+From d5e13ef7852c7301bec2998504651b3b03a709f5 Mon Sep 17 00:00:00 2001
+From: Thomas Duignan <thomas.j.duignan@gmail.com>
+Date: Tue, 10 Sep 2024 09:21:25 -0400
+Subject: [PATCH] debug: patch ost cmake
+
+---
+ cmake_support/OST.cmake | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/cmake_support/OST.cmake b/cmake_support/OST.cmake
+index 3456bc0d..62e4162e 100644
+--- a/cmake_support/OST.cmake
++++ b/cmake_support/OST.cmake
+@@ -866,8 +866,8 @@ macro(setup_stage)
+   endif()
+   set (ARCH ${CMAKE_NATIVE_ARCH})
+   if ("${ARCH}" MATCHES "64" AND NOT _UBUNTU_LAYOUT)
+-    set(LIB_DIR lib64  )
+-    set(LIB_STAGE_PATH "${STAGE_DIR}/lib64"  )
++    set(LIB_DIR lib  )
++    set(LIB_STAGE_PATH "${STAGE_DIR}/lib"  )
+   else()
+     set(LIB_DIR lib  )
+     set(LIB_STAGE_PATH "${STAGE_DIR}/lib"  )
+-- 
+2.39.3 (Apple Git-146)
+
